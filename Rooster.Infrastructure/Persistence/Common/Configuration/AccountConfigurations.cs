@@ -15,6 +15,15 @@ public class UserConfiguration : BaseConfiguration, IEntityTypeConfiguration<Use
     }
 }
 
+public class RoleConfiguration : BaseConfiguration, IEntityTypeConfiguration<Role>
+{
+    public void Configure(EntityTypeBuilder<Role> builder)
+    {
+        builder.ToTable(nameof(Role)).HasKey(x => x.Id);
+        builder.Property((x => x.Name)).HasMaxLength(StringMaxLength);
+    }
+}
+
 public class UserRoleConfiguration : BaseConfiguration, IEntityTypeConfiguration<UserRole>
 {
     public void Configure(EntityTypeBuilder<UserRole> builder)
