@@ -1,8 +1,8 @@
+using Rooster.Domain.Common;
+
 namespace Rooster.Domain.Account;
 
-public enum Role
+public record Role : Entity<int>
 {
-    SuperAdmin,
-    BuildingAdmin,
-    FloorAdmin
+    public string Name { get; init; }
 }

@@ -1,4 +1,4 @@
-namespace Rooster.Application.Common.Common.Data;
+namespace Rooster.Application.Common.Data;
 
 public interface IDataSeeder
 {
