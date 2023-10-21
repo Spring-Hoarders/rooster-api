@@ -13,9 +13,9 @@ public class EfDataMigrator : IDataMigrator
         _db = db;
     }
 
-    public async Task Migrate()
+    public void Migrate()
     {
-        if ((await _db.Database.GetPendingMigrationsAsync()).Any())
-            await _db.Database.MigrateAsync();
+        if (_db.Database.GetPendingMigrations().Any())
+             _db.Database.Migrate();
     }
 }

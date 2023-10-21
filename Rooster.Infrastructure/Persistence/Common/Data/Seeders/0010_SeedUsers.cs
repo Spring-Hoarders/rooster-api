@@ -5,10 +5,10 @@ using Rooster.Infrastructure.Persistence.Common.Data.Common;
 namespace Rooster.Infrastructure.Persistence.Common.Data.Seeders;
 
 [EfSeeder]
-public class AddUsers
+public class SeedUsers
 {
-    private const string AdminEmail = "admin@rooster.com"; 
-    
+    private const string AdminEmail = "admin@rooster.com";
+
     public static async Task Run(AppDbContext db, IPasswordHasher passwordHasher, Guid adminUserId)
     {
         if (db.Users.Any(x => x.Email.Equals(AdminEmail))) return;
@@ -21,6 +21,17 @@ public class AddUsers
             Password = passwordHasher.HashPassword("P@ssword1"),
             CreatedAt = DateTimeOffset.UtcNow
         });
+
+        if (!db.UserRoles.Any())
+        {
+            db.Add(new UserRole
+            {
+                UserId = adminUserId,
+                RoleId = (int)Roles.SuperAdmin,
+                CreatedBy = adminUserId,
+                CreatedAt = DateTimeOffset.Now
+            });
+        }
 
         await db.SaveChangesAsync();
     }

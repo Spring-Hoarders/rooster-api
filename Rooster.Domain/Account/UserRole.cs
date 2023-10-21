@@ -5,7 +5,7 @@ namespace Rooster.Domain.Account;
 public class UserRole : IAuditableEntity
 {
     public Guid UserId { get; init; }
-    public Roles RoleId { get; init; }
+    public int RoleId { get; init; }
     
     public Guid CreatedBy { get; set; }
     public DateTimeOffset CreatedAt { get; set; }
