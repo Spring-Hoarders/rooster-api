@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Rooster.Domain.Account;
+using Rooster.Domain.Building;
 
 namespace Rooster.Infrastructure.Persistence;
 
@@ -11,6 +12,8 @@ public class AppDbContext : DbContext
     public DbSet<User> Users { get; set; }
     public DbSet<UserRole> UserRoles { get; set; }
     public DbSet<Role> Roles { get; set; }
+    public DbSet<Building> Building { get; set; }
+    public DbSet<Floor> Floor { get; set; }
 
     public AppDbContext(DbContextOptions options, ILoggerFactory loggerFactory) : base(options)
     {
