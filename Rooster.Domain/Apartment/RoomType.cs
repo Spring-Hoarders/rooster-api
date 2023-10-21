@@ -1,8 +1,9 @@
+using Rooster.Domain.Common;
+
 namespace Rooster.Domain.Apartment;
 
-public enum RoomType
+public record RoomType : Entity<int>
 {
-    SingleRoom = 1,
-    TwoRoom,
-    ThreeRoom
+    public string Name { get; init; }
+    public int Capacity { get; init; }
 }
