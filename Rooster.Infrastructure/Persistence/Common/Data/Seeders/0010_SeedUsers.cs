@@ -28,8 +28,7 @@ public class SeedUsers
             {
                 UserId = adminUserId,
                 RoleId = (int)Roles.SuperAdmin,
-                CreatedBy = adminUserId,
-                CreatedAt = DateTimeOffset.Now
+                CreatedBy = adminUserId
             });
         }
 
