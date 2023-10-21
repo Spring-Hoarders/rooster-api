@@ -9,7 +9,6 @@ namespace Rooster.Infrastructure.Persistence.Common.Configuration
 {
     public class ClientConfiguration : BaseConfiguration, IEntityTypeConfiguration<Client>
     {
-
         public void Configure(EntityTypeBuilder<Client> builder)
         {
             builder.ToTable(nameof(Client)).HasKey(x => x.Id);

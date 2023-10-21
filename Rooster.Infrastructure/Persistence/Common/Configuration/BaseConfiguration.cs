@@ -7,5 +7,4 @@ public abstract class BaseConfiguration
     protected const int ShortDescriptionMaxLength = 400;
     protected const int LongDescriptionMaxLength = 1000;
     protected const int AbbreviationMaxLength = 3;
-    protected const int IntMaxLenth = 30;
 }

@@ -24,7 +24,7 @@ namespace Rooster.Infrastructure.Persistence.Common.Configuration
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.Property(p => p.FileUrl).IsRequired().HasMaxLength(StringMaxLength);
-            builder.Property(p => p.Amount).IsRequired().HasMaxLength(IntMaxLenth);
+            builder.Property(p => p.Amount).IsRequired();
             builder.Property(p => p.CreatedAt).IsRequired().HasMaxLength(StringMaxLength);
         }
     }

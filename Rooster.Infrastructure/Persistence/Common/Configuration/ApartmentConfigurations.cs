@@ -11,8 +11,8 @@ public class ApartmentConfiguration : BaseConfiguration, IEntityTypeConfiguratio
     public void Configure(EntityTypeBuilder<Apartment> builder)
     {
         builder.ToTable(nameof(Apartment)).HasKey(x => x.Id);
+        
         builder.Property(x => x.Name).HasMaxLength(FloorMaxNumber);
-       
 
         builder.HasOne(f => f.Floor)
             .WithMany()
@@ -20,28 +20,22 @@ public class ApartmentConfiguration : BaseConfiguration, IEntityTypeConfiguratio
             .HasForeignKey(f => f.FloorId)
             .OnDelete(DeleteBehavior.Restrict);
 
-
         builder.HasOne(f => f.ApartmentType)
             .WithMany()
             .IsRequired()
             .HasForeignKey(f => f.ApartmentTypeId)
             .OnDelete(DeleteBehavior.Restrict);
-
-        builder.HasOne(x => x.RoomType)
-            .WithMany()
-            .IsRequired()
-            .HasForeignKey(x => x.RoomTypeId)
-            .OnDelete(DeleteBehavior.Restrict);
     }
 }
 
-public class RoomTypeConFiguration : BaseConfiguration, IEntityTypeConfiguration<RoomType>
+public class ApartmentTypeConFiguration : BaseConfiguration, IEntityTypeConfiguration<ApartmentType>
 {
-    private const int RoomMaxNumber = 3;
-    public void Configure(EntityTypeBuilder<RoomType> builder)
+    private const int ApartmentCapacityMaxNumber = 4;
+    public void Configure(EntityTypeBuilder<ApartmentType> builder)
     {
-        builder.ToTable(nameof(RoomType)).HasKey(x => x.Id);
+        builder.ToTable(nameof(ApartmentType)).HasKey(x => x.Id);
         builder.Property(x => x.Name).HasMaxLength(StringMaxLength);
-        builder.Property(x => x.Capacity).HasMaxLength(RoomMaxNumber);
+        builder.Property(x => x.Capacity).HasMaxLength(ApartmentCapacityMaxNumber);
+        builder.Property(x => x.Price).IsRequired();
     }
 }

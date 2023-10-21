@@ -19,10 +19,12 @@ public class AppDbContext : DbContext
     public DbSet<Role> Roles { get; set; }
     public DbSet<Building> Building { get; set; }
     public DbSet<Floor> Floor { get; set; }
-    public DbSet<Apartment> Apartment { get; set; }
     public DbSet<Payment> Payment { get; set; }
     public DbSet<Client> Clients { get; set; }
     public DbSet<Contract> Contract { get; set; }
+    public DbSet<Apartment> Apartment { get; set; }
+    public DbSet<ApartmentType> ApartmentTypes { get; set; }
+
 
 
     public AppDbContext(DbContextOptions options, ILoggerFactory loggerFactory) : base(options)
