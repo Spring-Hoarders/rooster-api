@@ -17,7 +17,7 @@ public class AppDbContext : DbContext
     public DbSet<User> Users { get; set; }
     public DbSet<UserRole> UserRoles { get; set; }
     public DbSet<Role> Roles { get; set; }
-    public DbSet<Building> Building { get; set; }
+    public DbSet<Domain.Building.Building> Buildings { get; set; }
     public DbSet<Floor> Floor { get; set; }
     public DbSet<Payment> Payment { get; set; }
     public DbSet<Client> Clients { get; set; }

@@ -5,10 +5,10 @@ using Rooster.Domain.Building;
 
 namespace Rooster.Infrastructure.Persistence.Common.Configuration
 {
-    public class BuildingConfiguration : BaseConfiguration, IEntityTypeConfiguration<Building>
+    public class BuildingConfiguration : BaseConfiguration, IEntityTypeConfiguration<Domain.Building.Building>
     {
         
-        public void Configure(EntityTypeBuilder<Building> builder)
+        public void Configure(EntityTypeBuilder<Domain.Building.Building> builder)
         {
             builder.ToTable(nameof(Building)).HasKey(x => x.Id);
             builder.Property(x => x.Name).HasMaxLength(StringMaxLength);
