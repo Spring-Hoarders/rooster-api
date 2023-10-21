@@ -8,7 +8,9 @@ public record Apartment : EntityWithGuid
     public Guid FloorId { get; init; }
     public Floor Floor { get; init; }
     
+    public int ApartmentTypeId { get; init; }
+    public ApartmentType ApartmentType { get; init; }
+    
     public string Name { get; init; }
     public ApartmentStatus Status { get; init; }
-    public ApartmentType Type { get; init; }
 }

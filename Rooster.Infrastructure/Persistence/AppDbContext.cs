@@ -1,6 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Rooster.Domain.Account;
+using Rooster.Domain.Apartment;
+using Rooster.Domain.Building;
+using Rooster.Domain.Client;
+using Rooster.Domain.Payment;
+using Contract = Rooster.Domain.Contract.Contract;
 
 namespace Rooster.Infrastructure.Persistence;
 
@@ -8,9 +13,19 @@ public class AppDbContext : DbContext
 {
     private readonly ILoggerFactory _loggerFactory;
     
+
     public DbSet<User> Users { get; set; }
     public DbSet<UserRole> UserRoles { get; set; }
     public DbSet<Role> Roles { get; set; }
+    public DbSet<Building> Building { get; set; }
+    public DbSet<Floor> Floor { get; set; }
+    public DbSet<Payment> Payment { get; set; }
+    public DbSet<Client> Clients { get; set; }
+    public DbSet<Contract> Contract { get; set; }
+    public DbSet<Apartment> Apartment { get; set; }
+    public DbSet<ApartmentType> ApartmentTypes { get; set; }
+
+
 
     public AppDbContext(DbContextOptions options, ILoggerFactory loggerFactory) : base(options)
     {
