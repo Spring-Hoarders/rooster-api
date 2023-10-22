@@ -15,10 +15,10 @@ namespace Rooster.Infrastructure.Persistence.Common.Configuration
         }
 
 
-        public class FloorConfiguration : IEntityTypeConfiguration<Floor>
+        public class FloorConfiguration : IEntityTypeConfiguration<Domain.Building.Floor>
         {
             private const int MaxFloorNumber = 30; 
-            public void Configure(EntityTypeBuilder<Floor> builder)
+            public void Configure(EntityTypeBuilder<Domain.Building.Floor> builder)
             {
                 builder.ToTable(nameof(Floor)).HasKey(x => x.Id);
                 builder.Property(x => x.Number).HasMaxLength(MaxFloorNumber);

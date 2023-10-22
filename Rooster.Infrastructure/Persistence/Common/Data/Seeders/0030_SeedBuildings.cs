@@ -34,7 +34,7 @@ public class SeedBuildings
                 for (var i = 0; i < 3; i++)
                 {
                     var floorId = Guid.NewGuid();
-                    db.Add(new Floor
+                    db.Add(new Domain.Building.Floor
                     {
                         Id = floorId,
                         BuildingId = buildingId,
