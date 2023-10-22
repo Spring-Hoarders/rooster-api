@@ -1,6 +1,5 @@
 ﻿using MediatR;
 using Rooster.Domain.Apartment;
-using Rooster.Domain.Building;
 
 namespace Rooster.Apartament
 {
